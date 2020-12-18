@@ -1,0 +1,72 @@
+<ActivityDefinition xmlns="http://hl7.org/fhir">
+	<meta>
+		<tag>
+			<system value="http://highmed.org/fhir/CodeSystem/authorization-role" />
+			<code value="REMOTE" />
+		</tag>
+	</meta>
+	<extension url="http://highmed.org/fhir/StructureDefinition/process-authorization">
+		<extension url="message-name">
+			<valueString value="helloWorldMessage" />
+		</extension>
+		<extension url="authorization-roles">
+			<extension url="authorization-role">
+				<valueCoding>
+					<system value="http://highmed.org/fhir/CodeSystem/authorization-role" />
+					<code value="LOCAL" />
+				</valueCoding>
+			</extension>
+		</extension>
+		<extension url="requester-organization-types">
+			<extension url="requester-organization-type">
+				<valueCoding>
+					<system value="http://highmed.org/fhir/CodeSystem/organization-type" />
+					<code value="TTP" />
+				</valueCoding>
+			</extension>
+			<extension url="requester-organization-type">
+				<valueCoding>
+					<system value="http://highmed.org/fhir/CodeSystem/organization-type" />
+					<code value="MeDIC" />
+				</valueCoding>
+			</extension>
+		</extension>
+		<extension url="recipient-organization-types">
+			<extension url="recipient-organization-type">
+				<valueCoding>
+					<system value="http://highmed.org/fhir/CodeSystem/organization-type" />
+					<code value="TTP" />
+				</valueCoding>
+			</extension>
+			<extension url="recipient-organization-type">
+				<valueCoding>
+					<system value="http://highmed.org/fhir/CodeSystem/organization-type" />
+					<code value="MeDIC" />
+				</valueCoding>
+			</extension>
+		</extension>
+		<extension url="task-profile">
+			<valueCanonical value="http://highmed.org/fhir/StructureDefinition/highmed-task-hello-world" />
+		</extension>
+	</extension>
+	<url value="http://highmed.org/bpe/Process/helloWorld" />
+	<!-- version managed by bpe -->
+	<version value="bpe-managed" />
+	<name value="helloWorld" />
+	<title value="Hello World" />
+	<subtitle value="Example Template Process as template for implementation of novel processes" />
+	<!-- status managed by bpe -->
+	<status value="unknown" />
+	<experimental value="false" />
+	<date value="2020-12-07" />
+	<publisher value="HiGHmed" />
+	<contact>
+		<name value="HiGHmed" />
+		<telecom>
+			<system value="email" />
+			<value value="pmo@highmed.org" />
+		</telecom>
+	</contact>
+	<description value="Example process as template for implementation of novel processes" />
+	<kind value="Task" />
+</ActivityDefinition>
