@@ -1,4 +1,4 @@
-package org.highmed.dsf.bpe.variable;
+package org.highmed.dsf.bpe;
 
 import static org.highmed.dsf.bpe.ConstantsBase.PROCESS_URI_BASE;
 import static org.highmed.dsf.bpe.HelloWorldProcessPluginDefinition.VERSION;

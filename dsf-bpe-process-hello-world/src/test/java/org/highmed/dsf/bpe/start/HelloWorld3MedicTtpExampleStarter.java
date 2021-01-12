@@ -5,9 +5,9 @@ import static org.highmed.dsf.bpe.ConstantsBase.CODESYSTEM_HIGHMED_BPMN_VALUE_ME
 import static org.highmed.dsf.bpe.ConstantsBase.ORGANIZATION_IDENTIFIER_SYSTEM;
 import static org.highmed.dsf.bpe.start.ConstantsExampleStarters.MEDIC_1_FHIR_BASE_URL;
 import static org.highmed.dsf.bpe.start.ConstantsExampleStarters.ORGANIZATION_IDENTIFIER_VALUE_MEDIC_1;
-import static org.highmed.dsf.bpe.variable.ConstantsHelloWorld.HELLO_WORLD_MESSAGE_NAME;
-import static org.highmed.dsf.bpe.variable.ConstantsHelloWorld.HELLO_WORLD_PROCESS_URI_AND_LATEST_VERSION;
-import static org.highmed.dsf.bpe.variable.ConstantsHelloWorld.HELLO_WORLD_TASK_PROFILE;
+import static org.highmed.dsf.bpe.ConstantsHelloWorld.HELLO_WORLD_MESSAGE_NAME;
+import static org.highmed.dsf.bpe.ConstantsHelloWorld.HELLO_WORLD_PROCESS_URI_AND_LATEST_VERSION;
+import static org.highmed.dsf.bpe.ConstantsHelloWorld.HELLO_WORLD_TASK_PROFILE;
 
 import java.util.Date;
 
