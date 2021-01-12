@@ -1,5 +1,7 @@
 # HiGHmed DSF Example Processes 
 
+![Java CI Build with Maven](https://github.com/highmed/example-processes/workflows/Java%20CI%20Build%20with%20Maven/badge.svg)
+
 In this repository you will find example processes, that can be deployed on the [HiGHmed DSF](https://github.com/highmed/highmed-dsf).
 
 ## Development
@@ -26,7 +28,7 @@ Prerequisite: Java 11, Maven >= 3.6
     </servers>
     ```
 
-* Build the project from the root directory of this repository by executing the following command. If you want to copy the artifacts into the test folders of the **highmed-dsf** repository, make sure that the **highmed-dsf-processes** repository resides in the same folder as the **higmmed-dsf** repository and activate the profile `copy-to-highmed-dsf-process` in the build command.
+* Build the project from the root directory of this repository by executing the following command. If you want to copy the artifacts into the test folders of the **highmed-dsf** repository, make sure that the **example-processes** repository resides in the same folder as the **higmmed-dsf** repository and activate the profile `copy-to-highmed-dsf-process` in the build command.
 
   ```
   mvn clean install (-P copy-to-highmed-dsf-process)
