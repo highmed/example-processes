@@ -154,6 +154,17 @@
 		</plugins>
 	</build>
 
+	<distributionManagement>
+		<!-- for deployment to GitHub Packages the id must be 'github',
+		if not the deployment fails with a 401 error;
+		repository also used for snapshots if no snapshotRepository defined -->
+		<repository>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/highmed/example-processes</url>
+		</repository>
+	</distributionManagement>
+
 	<repositories>
 		<repository>
 			<id>github</id>
