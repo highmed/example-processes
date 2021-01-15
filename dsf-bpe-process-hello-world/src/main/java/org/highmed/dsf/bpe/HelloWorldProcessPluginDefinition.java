@@ -44,7 +44,7 @@ public class HelloWorldProcessPluginDefinition implements ProcessPluginDefinitio
 	@Override
 	public ResourceProvider getResourceProvider(FhirContext fhirContext, ClassLoader classLoader)
 	{
-		var aHelloWorld = ActivityDefinitionResource.file("fhir/ActivityDefinition/helloWorld.xml");
+		var aHelloWorld = ActivityDefinitionResource.file("fhir/ActivityDefinition/highmed-helloWorld.xml");
 		var tHelloWorld = StructureDefinitionResource.file("fhir/StructureDefinition/highmed-task-hello-world.xml");
 
 		Map<String, List<AbstractResource>> resourcesByProcessKeyAndVersion = Map
