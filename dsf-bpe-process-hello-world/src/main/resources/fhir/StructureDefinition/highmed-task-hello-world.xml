@@ -7,12 +7,12 @@
   </meta>
   <url value="http://highmed.org/fhir/StructureDefinition/task-hello-world" />
   <!-- version managed by bpe -->
-  <version value="bpe-managed" />
+  <version value="${version}" />
   <name value="helloWorldProcess" />
   <!-- status managed by bpe -->
   <status value="unknown" />
   <experimental value="false" />
-  <date value="2020-12-04" />
+  <date value="2021-01-26" />
   <fhirVersion value="4.0.1" />
   <kind value="resource" />
   <abstract value="false" />
@@ -22,7 +22,7 @@
   <differential>
     <element id="Task.instantiatesUri">
       <path value="Task.instantiatesUri" />
-      <fixedUri value="http://highmed.org/bpe/Process/helloWorld/0.4.0" />
+      <fixedUri value="http://highmed.org/bpe/Process/helloWorld/${version}" />
     </element>
     <element id="Task.input">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
