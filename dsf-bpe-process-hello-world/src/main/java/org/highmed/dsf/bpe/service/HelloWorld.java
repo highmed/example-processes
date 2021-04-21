@@ -21,6 +21,7 @@ public class HelloWorld extends AbstractServiceDelegate
 	public void doExecute(DelegateExecution execution) throws Exception
 	{
 		Task task = getCurrentTaskFromExecutionVariables();
-		logger.info("Hello World from organization with identifier '{}'", task.getRequester().getIdentifier().getValue());
+		logger.info("Hello World from organization with identifier '{}'",
+				task.getRequester().getIdentifier().getValue());
 	}
 }
