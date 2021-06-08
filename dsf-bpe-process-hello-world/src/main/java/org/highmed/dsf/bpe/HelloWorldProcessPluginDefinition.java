@@ -49,7 +49,7 @@ public class HelloWorldProcessPluginDefinition implements ProcessPluginDefinitio
 		var aHelloWorld = ActivityDefinitionResource.file("fhir/ActivityDefinition/highmed-helloWorld.xml");
 		var tHelloWorld = StructureDefinitionResource.file("fhir/StructureDefinition/highmed-task-hello-world.xml");
 
-		Map<String, List<AbstractResource>> resourcesByProcessKeyAndVersion = Map.of("helloWorld/" + VERSION,
+		Map<String, List<AbstractResource>> resourcesByProcessKeyAndVersion = Map.of("highmedorg_helloWorld/" + VERSION,
 				Arrays.asList(aHelloWorld, tHelloWorld));
 
 		return ResourceProvider.read(VERSION, () -> fhirContext.newXmlParser().setStripVersionsFromReferences(false),
