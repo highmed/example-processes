@@ -62,19 +62,19 @@
 			<dependency>
 				<groupId>de.hs-heilbronn.mi</groupId>
 				<artifactId>log4j2-utils</artifactId>
-				<version>0.7.0</version>
+				<version>0.9.0</version>
 			</dependency>
 
 			<!-- testing -->
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
-				<version>4.13.1</version>
+				<version>4.13.2</version>
 			</dependency>
 			<dependency>
 				<groupId>org.highmed.dsf</groupId>
 				<artifactId>dsf-bpe-process-base</artifactId>
-				<version>0.4.0</version>
+				<version>0.5.0-SNAPSHOT</version>
 				<scope>test</scope>
 				<type>test-jar</type>
 			</dependency>
