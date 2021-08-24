@@ -10,12 +10,13 @@ import org.highmed.dsf.fhir.resources.AbstractResource;
 import org.highmed.dsf.fhir.resources.ActivityDefinitionResource;
 import org.highmed.dsf.fhir.resources.ResourceProvider;
 import org.highmed.dsf.fhir.resources.StructureDefinitionResource;
+import org.springframework.core.env.PropertyResolver;
 
 import ca.uhn.fhir.context.FhirContext;
 
 public class HelloWorldProcessPluginDefinition implements ProcessPluginDefinition
 {
-	public static final String VERSION = "0.4.0";
+	public static final String VERSION = "0.5.0";
 
 	@Override
 	public String getName()
@@ -42,16 +43,16 @@ public class HelloWorldProcessPluginDefinition implements ProcessPluginDefinitio
 	}
 
 	@Override
-	public ResourceProvider getResourceProvider(FhirContext fhirContext, ClassLoader classLoader)
+	public ResourceProvider getResourceProvider(FhirContext fhirContext, ClassLoader classLoader,
+			PropertyResolver resolver)
 	{
 		var aHelloWorld = ActivityDefinitionResource.file("fhir/ActivityDefinition/highmed-helloWorld.xml");
 		var tHelloWorld = StructureDefinitionResource.file("fhir/StructureDefinition/highmed-task-hello-world.xml");
 
-		Map<String, List<AbstractResource>> resourcesByProcessKeyAndVersion = Map
-				.of("helloWorld/" + VERSION, Arrays.asList(aHelloWorld, tHelloWorld));
+		Map<String, List<AbstractResource>> resourcesByProcessKeyAndVersion = Map.of("highmedorg_helloWorld/" + VERSION,
+				Arrays.asList(aHelloWorld, tHelloWorld));
 
-		return ResourceProvider
-				.read(VERSION, () -> fhirContext.newXmlParser().setStripVersionsFromReferences(false), classLoader,
-						resourcesByProcessKeyAndVersion);
+		return ResourceProvider.read(VERSION, () -> fhirContext.newXmlParser().setStripVersionsFromReferences(false),
+				classLoader, resolver, resourcesByProcessKeyAndVersion);
 	}
 }
