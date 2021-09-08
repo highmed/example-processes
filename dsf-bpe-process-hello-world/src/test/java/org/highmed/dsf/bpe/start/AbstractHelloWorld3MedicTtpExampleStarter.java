@@ -3,7 +3,7 @@ package org.highmed.dsf.bpe.start;
 import static org.highmed.dsf.bpe.ConstantsBase.CODESYSTEM_HIGHMED_BPMN;
 import static org.highmed.dsf.bpe.ConstantsBase.CODESYSTEM_HIGHMED_BPMN_VALUE_MESSAGE_NAME;
 import static org.highmed.dsf.bpe.ConstantsBase.NAMINGSYSTEM_HIGHMED_ORGANIZATION_IDENTIFIER;
-import static org.highmed.dsf.bpe.ConstantsHelloWorld.PROFILE_HIGHMED_TASK_HELLO_WORLD;
+import static org.highmed.dsf.bpe.ConstantsHelloWorld.PROFILE_HIGHMED_TASK_HELLO_WORLD_AND_LATEST_VERSION;
 import static org.highmed.dsf.bpe.ConstantsHelloWorld.PROFILE_HIGHMED_TASK_HELLO_WORLD_MESSAGE_NAME;
 import static org.highmed.dsf.bpe.ConstantsHelloWorld.PROFILE_HIGHMED_TASK_HELLO_WORLD_PROCESS_URI_AND_LATEST_VERSION;
 import static org.highmed.dsf.bpe.start.ConstantsExampleStarters.NAMINGSYSTEM_HIGHMED_ORGANIZATION_IDENTIFIER_VALUE_MEDIC_1;
@@ -27,7 +27,7 @@ public abstract class AbstractHelloWorld3MedicTtpExampleStarter
 	private Task createStartResource()
 	{
 		Task task = new Task();
-		task.getMeta().addProfile(PROFILE_HIGHMED_TASK_HELLO_WORLD);
+		task.getMeta().addProfile(PROFILE_HIGHMED_TASK_HELLO_WORLD_AND_LATEST_VERSION);
 		task.setInstantiatesUri(PROFILE_HIGHMED_TASK_HELLO_WORLD_PROCESS_URI_AND_LATEST_VERSION);
 		task.setStatus(TaskStatus.REQUESTED);
 		task.setIntent(TaskIntent.ORDER);
