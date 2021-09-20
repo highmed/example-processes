@@ -6,6 +6,8 @@ import static org.highmed.dsf.bpe.HelloWorldProcessPluginDefinition.VERSION;
 public interface ConstantsHelloWorld
 {
 	String PROFILE_HIGHMED_TASK_HELLO_WORLD = "http://highmed.org/fhir/StructureDefinition/task-hello-world";
+	String PROFILE_HIGHMED_TASK_HELLO_WORLD_AND_LATEST_VERSION = "http://highmed.org/fhir/StructureDefinition/task-hello-world"
+			+ "|" + VERSION;
 	String PROFILE_HIGHMED_TASK_HELLO_WORLD_PROCESS_URI = PROCESS_HIGHMED_URI_BASE + "helloWorld/";
 	String PROFILE_HIGHMED_TASK_HELLO_WORLD_PROCESS_URI_AND_LATEST_VERSION = PROFILE_HIGHMED_TASK_HELLO_WORLD_PROCESS_URI
 			+ VERSION;
