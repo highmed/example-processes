@@ -6,7 +6,7 @@
 
 	<groupId>org.highmed.dsf</groupId>
 	<artifactId>dsf-bpe-example-processes-pom</artifactId>
-	<version>0.5.2-SNAPSHOT</version>
+	<version>0.6.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<modules>
@@ -45,17 +45,17 @@
 			<dependency>
 				<groupId>org.highmed.dsf</groupId>
 				<artifactId>dsf-bpe-process-base</artifactId>
-				<version>0.5.2</version>
+				<version>0.6.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.highmed.dsf</groupId>
 				<artifactId>dsf-bpe-process-hello-world</artifactId>
-				<version>0.5.2</version>
+				<version>0.6.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>org.highmed.dsf</groupId>
 				<artifactId>dsf-fhir-validation</artifactId>
-				<version>0.5.2</version>
+				<version>0.6.0-SNAPSHOT</version>
 			</dependency>
 
 			<!-- hhn rwh -->
@@ -74,7 +74,7 @@
 			<dependency>
 				<groupId>org.highmed.dsf</groupId>
 				<artifactId>dsf-bpe-process-base</artifactId>
-				<version>0.5.2</version>
+				<version>0.6.0-SNAPSHOT</version>
 				<scope>test</scope>
 				<type>test-jar</type>
 			</dependency>
