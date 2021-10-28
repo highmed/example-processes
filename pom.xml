@@ -22,7 +22,7 @@
 	</properties>
 
 	<name>example-processes</name>
-	<description>HiGHmed DSF Example Processes</description>
+	<description>Example processes to be deployed on the HiGHmed DSF</description>
 	<url>https://github.com/highmed/example-processes</url>
 
 	<scm>
