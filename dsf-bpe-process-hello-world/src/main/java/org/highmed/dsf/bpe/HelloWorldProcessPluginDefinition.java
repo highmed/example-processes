@@ -1,5 +1,6 @@
 package org.highmed.dsf.bpe;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +18,7 @@ import ca.uhn.fhir.context.FhirContext;
 public class HelloWorldProcessPluginDefinition implements ProcessPluginDefinition
 {
 	public static final String VERSION = "0.6.0";
+	public static final LocalDate RELEASE_DATE = LocalDate.of(2022, 4, 14);
 
 	@Override
 	public String getName()
@@ -28,6 +30,12 @@ public class HelloWorldProcessPluginDefinition implements ProcessPluginDefinitio
 	public String getVersion()
 	{
 		return VERSION;
+	}
+
+	@Override
+	public LocalDate getReleaseDate()
+	{
+		return RELEASE_DATE;
 	}
 
 	@Override
@@ -52,7 +60,8 @@ public class HelloWorldProcessPluginDefinition implements ProcessPluginDefinitio
 		Map<String, List<AbstractResource>> resourcesByProcessKeyAndVersion = Map.of("highmedorg_helloWorld/" + VERSION,
 				Arrays.asList(aHelloWorld, tHelloWorld));
 
-		return ResourceProvider.read(VERSION, () -> fhirContext.newXmlParser().setStripVersionsFromReferences(false),
-				classLoader, resolver, resourcesByProcessKeyAndVersion);
+		return ResourceProvider.read(VERSION, RELEASE_DATE,
+				() -> fhirContext.newXmlParser().setStripVersionsFromReferences(false), classLoader, resolver,
+				resourcesByProcessKeyAndVersion);
 	}
 }
