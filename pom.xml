@@ -6,7 +6,7 @@
 
 	<groupId>org.highmed.dsf</groupId>
 	<artifactId>dsf-bpe-example-processes-pom</artifactId>
-	<version>0.5.0</version>
+	<version>0.6.0</version>
 	<packaging>pom</packaging>
 
 	<modules>
@@ -22,7 +22,7 @@
 	</properties>
 
 	<name>example-processes</name>
-	<description>HiGHmed DSF Example Processes</description>
+	<description>Example processes to be deployed on the HiGHmed DSF</description>
 	<url>https://github.com/highmed/example-processes</url>
 
 	<scm>
@@ -45,24 +45,24 @@
 			<dependency>
 				<groupId>org.highmed.dsf</groupId>
 				<artifactId>dsf-bpe-process-base</artifactId>
-				<version>0.5.0</version>
+				<version>0.6.0</version>
 			</dependency>
 			<dependency>
 				<groupId>org.highmed.dsf</groupId>
 				<artifactId>dsf-bpe-process-hello-world</artifactId>
-				<version>0.5.0</version>
+				<version>0.6.0</version>
 			</dependency>
 			<dependency>
 				<groupId>org.highmed.dsf</groupId>
 				<artifactId>dsf-fhir-validation</artifactId>
-				<version>0.5.0</version>
+				<version>0.6.0</version>
 			</dependency>
 
 			<!-- hhn rwh -->
 			<dependency>
 				<groupId>de.hs-heilbronn.mi</groupId>
 				<artifactId>log4j2-utils</artifactId>
-				<version>0.10.0</version>
+				<version>0.13.0</version>
 			</dependency>
 
 			<!-- testing -->
@@ -74,7 +74,7 @@
 			<dependency>
 				<groupId>org.highmed.dsf</groupId>
 				<artifactId>dsf-bpe-process-base</artifactId>
-				<version>0.5.0</version>
+				<version>0.6.0</version>
 				<scope>test</scope>
 				<type>test-jar</type>
 			</dependency>
@@ -87,7 +87,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.8.1</version>
+					<version>3.10.1</version>
 					<configuration>
 						<source>${compileSource}</source>
 						<target>${compileTarget}</target>
@@ -101,7 +101,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-jar-plugin</artifactId>
-					<version>3.2.0</version>
+					<version>3.2.2</version>
 					<configuration>
 						<archive>
 							<manifest>
@@ -125,7 +125,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-dependency-plugin</artifactId>
-					<version>3.2.0</version>
+					<version>3.3.0</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -135,7 +135,7 @@
 				<plugin>
 					<groupId>net.revelc.code.formatter</groupId>
 					<artifactId>formatter-maven-plugin</artifactId>
-					<version>2.16.0</version>
+					<version>2.18.0</version>
 				</plugin>
 				<plugin>
 					<groupId>net.revelc.code</groupId>

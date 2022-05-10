@@ -6,6 +6,7 @@ import static org.highmed.dsf.bpe.ConstantsBase.NAMINGSYSTEM_HIGHMED_ORGANIZATIO
 import static org.highmed.dsf.bpe.ConstantsHelloWorld.PROFILE_HIGHMED_TASK_HELLO_WORLD;
 import static org.highmed.dsf.bpe.ConstantsHelloWorld.PROFILE_HIGHMED_TASK_HELLO_WORLD_MESSAGE_NAME;
 import static org.highmed.dsf.bpe.ConstantsHelloWorld.PROFILE_HIGHMED_TASK_HELLO_WORLD_PROCESS_URI_AND_LATEST_VERSION;
+import static org.highmed.dsf.bpe.HelloWorldProcessPluginDefinition.RELEASE_DATE;
 import static org.highmed.dsf.bpe.HelloWorldProcessPluginDefinition.VERSION;
 import static org.junit.Assert.assertEquals;
 
@@ -33,7 +34,7 @@ public class TaskProfileTest
 	private static final Logger logger = LoggerFactory.getLogger(TaskProfileTest.class);
 
 	@ClassRule
-	public static final ValidationSupportRule validationRule = new ValidationSupportRule(VERSION,
+	public static final ValidationSupportRule validationRule = new ValidationSupportRule(VERSION, RELEASE_DATE,
 			Arrays.asList("highmed-task-base-0.5.0.xml", "highmed-task-hello-world.xml"),
 			Arrays.asList("highmed-read-access-tag-0.5.0.xml", "highmed-bpmn-message-0.5.0.xml"),
 			Arrays.asList("highmed-read-access-tag-0.5.0.xml", "highmed-bpmn-message-0.5.0.xml"));
