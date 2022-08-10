@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1yb5vw3" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.8.1">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1yb5vw3" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.0.0">
   <bpmn:process id="highmedorg_helloWorld" isExecutable="true" camunda:versionTag="#{version}">
+    <bpmn:extensionElements />
     <bpmn:sequenceFlow id="SequenceFlow_0bbhq2r" sourceRef="StartEvent_1" targetRef="helloWorldTask" />
     <bpmn:endEvent id="EndEvent_0xd0x8k">
-      <bpmn:incoming>SequenceFlow_0oyvmcd</bpmn:incoming>
+      <bpmn:incoming>Flow_00nx7hv</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="SequenceFlow_0oyvmcd" sourceRef="helloWorldTask" targetRef="EndEvent_0xd0x8k" />
+    <bpmn:sequenceFlow id="SequenceFlow_0oyvmcd" sourceRef="helloWorldTask" targetRef="userTask" />
     <bpmn:serviceTask id="helloWorldTask" name="Hello World" camunda:class="org.highmed.dsf.bpe.service.HelloWorld">
       <bpmn:incoming>SequenceFlow_0bbhq2r</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0oyvmcd</bpmn:outgoing>
@@ -14,26 +15,46 @@
       <bpmn:outgoing>SequenceFlow_0bbhq2r</bpmn:outgoing>
       <bpmn:messageEventDefinition messageRef="Message_1nn2wdw" />
     </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_00nx7hv" sourceRef="userTask" targetRef="EndEvent_0xd0x8k" />
+    <bpmn:userTask id="userTask" name="User Task">
+      <bpmn:extensionElements>
+        <camunda:taskListener class="org.highmed.dsf.bpe.user.task.UserTask" event="create" id="test" />
+        <camunda:inputOutput>
+          <camunda:inputParameter name="questionnaireUrl">http://highmed.org/fhir/Questionnaire/hello-world</camunda:inputParameter>
+          <camunda:inputParameter name="questionnaireVersion">#{version}</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0oyvmcd</bpmn:incoming>
+      <bpmn:outgoing>Flow_00nx7hv</bpmn:outgoing>
+    </bpmn:userTask>
   </bpmn:process>
   <bpmn:message id="Message_1nn2wdw" name="helloWorldMessage" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="highmedorg_helloWorld">
+      <bpmndi:BPMNEdge id="Flow_00nx7hv_di" bpmnElement="Flow_00nx7hv">
+        <di:waypoint x="530" y="121" />
+        <di:waypoint x="582" y="121" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_0oyvmcd_di" bpmnElement="SequenceFlow_0oyvmcd">
         <di:waypoint x="365" y="121" />
-        <di:waypoint x="415" y="121" />
+        <di:waypoint x="430" y="121" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_0bbhq2r_di" bpmnElement="SequenceFlow_0bbhq2r">
         <di:waypoint x="215" y="121" />
         <di:waypoint x="265" y="121" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="EndEvent_0xd0x8k_di" bpmnElement="EndEvent_0xd0x8k">
-        <dc:Bounds x="415" y="103" width="36" height="36" />
+        <dc:Bounds x="582" y="103" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="ServiceTask_0um3ad2_di" bpmnElement="helloWorldTask">
         <dc:Bounds x="265" y="81" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="StartEvent_0x5gijn_di" bpmnElement="StartEvent_1">
         <dc:Bounds x="179" y="103" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_06hqzi2_di" bpmnElement="userTask">
+        <dc:Bounds x="430" y="81" width="100" height="80" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
