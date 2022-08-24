@@ -24,12 +24,47 @@
 		<text value="The user-task-id of the process execution"/>
 	</item>
 	<item>
-		<linkId value="data-set-location"/>
+		<linkId value="string-test"/>
 		<type value="string"/>
+		<text value="Add a string to test the string type"/>
+	</item>
+	<item>
+		<linkId value="text-test"/>
+		<type value="text"/>
+		<text value="Add a text to test the text type"/>
+	</item>
+	<item>
+		<linkId value="integer-test"/>
+		<type value="integer"/>
+		<text value="Add an integer number to test the integer type"/>
+	</item>
+	<item>
+		<linkId value="decimal-test"/>
+		<type value="decimal"/>
+		<text value="Add a decimal number to test the decimal type"/>
+	</item>
+	<item>
+		<linkId value="date-test"/>
+		<type value="date"/>
+		<text value="Add a date to test the date type"/>
+	</item>
+	<item>
+		<linkId value="time-test"/>
+		<type value="time"/>
+		<text value="Add a time to test the time type"/>
+	</item>
+	<item>
+		<linkId value="date-time-test"/>
+		<type value="dateTime"/>
+		<text value="Add a date-time to test the dateTime type"/>
+	</item>
+	<item>
+		<linkId value="reference-test"/>
+		<type value="reference"/>
 		<text value="Add the location (url) of the data-set that should be approved"/>
 	</item>
 	<item>
-		<linkId value="approve"/>
+		<linkId value="boolean-test"/>
 		<type value="boolean"/>
 		<text value="Do you approve the release of the data-set?"/>
 	</item>
