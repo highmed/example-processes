@@ -20,7 +20,7 @@ import ca.uhn.fhir.context.FhirContext;
 
 public class HelloWorldProcessPluginDefinition implements ProcessPluginDefinition
 {
-	public static final String VERSION = "0.7.0";
+	public static final String VERSION = "0.8.0";
 	public static final LocalDate RELEASE_DATE = LocalDate.of(2022, 8, 1);
 
 	@Override
