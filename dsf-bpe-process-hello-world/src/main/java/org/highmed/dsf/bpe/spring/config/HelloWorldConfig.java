@@ -38,6 +38,7 @@ public class HelloWorldConfig
 	@Bean
 	public UserTask userTask()
 	{
-		return new UserTask(clientProvider, organizationProvider, questionnaireResponseHelper, readAccessHelper);
+		return new UserTask(clientProvider, organizationProvider, questionnaireResponseHelper, taskHelper,
+				readAccessHelper);
 	}
 }
