@@ -16,14 +16,7 @@
       <bpmn:messageEventDefinition messageRef="Message_1nn2wdw" />
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="Flow_00nx7hv" sourceRef="userTask" targetRef="EndEvent_0xd0x8k" />
-    <bpmn:userTask id="userTask" name="User Task">
-      <bpmn:extensionElements>
-        <camunda:taskListener class="org.highmed.dsf.bpe.user.task.UserTask" event="create" id="test" />
-        <camunda:inputOutput>
-          <camunda:inputParameter name="questionnaireUrl">http://highmed.org/fhir/Questionnaire/hello-world</camunda:inputParameter>
-          <camunda:inputParameter name="questionnaireVersion">#{version}</camunda:inputParameter>
-        </camunda:inputOutput>
-      </bpmn:extensionElements>
+    <bpmn:userTask id="userTask" name="User Task" camunda:formKey="http://highmed.org/fhir/Questionnaire/hello-world|#{version}">
       <bpmn:incoming>SequenceFlow_0oyvmcd</bpmn:incoming>
       <bpmn:outgoing>Flow_00nx7hv</bpmn:outgoing>
     </bpmn:userTask>
