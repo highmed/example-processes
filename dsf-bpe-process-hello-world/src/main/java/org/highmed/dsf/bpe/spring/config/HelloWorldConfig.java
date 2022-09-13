@@ -1,6 +1,7 @@
 package org.highmed.dsf.bpe.spring.config;
 
 import org.highmed.dsf.bpe.service.HelloWorld;
+import org.highmed.dsf.bpe.service.LogUserTaskResponse;
 import org.highmed.dsf.fhir.authorization.read.ReadAccessHelper;
 import org.highmed.dsf.fhir.client.FhirWebserviceClientProvider;
 import org.highmed.dsf.fhir.organization.OrganizationProvider;
@@ -32,5 +33,11 @@ public class HelloWorldConfig
 	public HelloWorld helloWorld()
 	{
 		return new HelloWorld(clientProvider, taskHelper, readAccessHelper);
+	}
+
+	@Bean
+	public LogUserTaskResponse logUserTaskResponse()
+	{
+		return new LogUserTaskResponse(clientProvider, taskHelper, readAccessHelper);
 	}
 }
