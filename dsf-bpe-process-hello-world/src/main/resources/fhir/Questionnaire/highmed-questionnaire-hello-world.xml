@@ -59,6 +59,11 @@
 		<text value="Add a date-time to test the dateTime type"/>
 	</item>
 	<item>
+		<linkId value="url-test"/>
+		<type value="url"/>
+		<text value="Add the location of the pdf contract"/>
+	</item>
+	<item>
 		<linkId value="reference-test"/>
 		<type value="reference"/>
 		<text value="Add the location (url) of the data-set that should be approved"/>
