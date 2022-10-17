@@ -20,9 +20,9 @@ public class HelloWorld extends AbstractServiceDelegate
 	}
 
 	@Override
-	public void doExecute(DelegateExecution execution) throws Exception
+	public void doExecute(DelegateExecution execution)
 	{
-		Task task = getCurrentTaskFromExecutionVariables();
+		Task task = getCurrentTaskFromExecutionVariables(execution);
 		logger.info("Hello World from organization with identifier '{}'",
 				task.getRequester().getIdentifier().getValue());
 	}
