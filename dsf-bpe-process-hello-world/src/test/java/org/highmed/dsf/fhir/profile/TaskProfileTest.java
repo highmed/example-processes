@@ -46,9 +46,9 @@ public class TaskProfileTest
 			validationRule.getValidationSupport());
 
 	@Test
-	public void testTaskHelloWorldValid()
+	public void testTaskHelloUserValid()
 	{
-		Task task = createValidTaskHelloWorld();
+		Task task = createValidTaskHelloUser();
 
 		ValidationResult result = resourceValidator.validate(task);
 		ValidationSupportRule.logValidationMessages(logger, result);
@@ -74,6 +74,18 @@ public class TaskProfileTest
 				.setSystem(CODESYSTEM_HIGHMED_BPMN).setCode(CODESYSTEM_HIGHMED_BPMN_VALUE_MESSAGE_NAME);
 
 		return task;
+	}
+
+	@Test
+	public void testTaskHelloWorldValid()
+	{
+		Task task = createValidTaskHelloWorld();
+
+		ValidationResult result = resourceValidator.validate(task);
+		ValidationSupportRule.logValidationMessages(logger, result);
+
+		assertEquals(0, result.getMessages().stream().filter(m -> ResultSeverityEnum.ERROR.equals(m.getSeverity())
+				|| ResultSeverityEnum.FATAL.equals(m.getSeverity())).count());
 	}
 
 	private Task createValidTaskHelloWorld()

@@ -43,6 +43,6 @@ public class LogUserTaskResponse extends AbstractServiceDelegate implements Init
 				.getVariable(BPMN_EXECUTION_VARIABLE_QUESTIONNAIRE_RESPONSE_COMPLETED);
 
 		logger.info("Completed QuestionnaireResponse: {}",
-				fhirContext.newXmlParser().encodeResourceToString(questionnaireResponse));
+				fhirContext.newXmlParser().setPrettyPrint(true).encodeResourceToString(questionnaireResponse));
 	}
 }
