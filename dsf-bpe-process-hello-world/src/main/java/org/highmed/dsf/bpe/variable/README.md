@@ -1,0 +1,1 @@
+`variable` package typically used for implementing custom BPMN variable serializers
