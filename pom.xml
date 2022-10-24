@@ -6,7 +6,7 @@
 
 	<groupId>org.highmed.dsf</groupId>
 	<artifactId>dsf-bpe-example-processes-pom</artifactId>
-	<version>0.8.0-SNAPSHOT</version>
+	<version>0.9.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<modules>
@@ -18,7 +18,7 @@
 		<compileSource>11</compileSource>
 		<compileTarget>11</compileTarget>
 
-		<dsf.version>0.9.0-SNAPSHOT</dsf.version>
+		<dsf.version>0.9.0</dsf.version>
 
 		<main.basedir>${project.basedir}</main.basedir>
 	</properties>

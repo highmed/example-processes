@@ -3,9 +3,9 @@
   <bpmn:process id="highmedorg_helloWorld" isExecutable="true" camunda:versionTag="#{version}">
     <bpmn:sequenceFlow id="SequenceFlow_0bbhq2r" sourceRef="StartEvent_1" targetRef="helloWorldTask" />
     <bpmn:endEvent id="EndEvent_0xd0x8k">
-      <bpmn:incoming>Flow_034bfq7</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_0oyvmcd</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="SequenceFlow_0oyvmcd" sourceRef="helloWorldTask" targetRef="userTask" />
+    <bpmn:sequenceFlow id="SequenceFlow_0oyvmcd" sourceRef="helloWorldTask" targetRef="EndEvent_0xd0x8k" />
     <bpmn:serviceTask id="helloWorldTask" name="Hello World" camunda:class="org.highmed.dsf.bpe.service.HelloWorld">
       <bpmn:incoming>SequenceFlow_0bbhq2r</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0oyvmcd</bpmn:outgoing>
@@ -14,35 +14,17 @@
       <bpmn:outgoing>SequenceFlow_0bbhq2r</bpmn:outgoing>
       <bpmn:messageEventDefinition messageRef="Message_1nn2wdw" />
     </bpmn:startEvent>
-    <bpmn:sequenceFlow id="Flow_00nx7hv" sourceRef="userTask" targetRef="logUserTaskRespose" />
-    <bpmn:userTask id="userTask" name="User Task" camunda:formKey="http://highmed.org/fhir/Questionnaire/hello-world|#{version}">
-      <bpmn:incoming>SequenceFlow_0oyvmcd</bpmn:incoming>
-      <bpmn:outgoing>Flow_00nx7hv</bpmn:outgoing>
-    </bpmn:userTask>
-    <bpmn:sequenceFlow id="Flow_034bfq7" sourceRef="logUserTaskRespose" targetRef="EndEvent_0xd0x8k" />
-    <bpmn:serviceTask id="logUserTaskRespose" name="log user task respose" camunda:class="org.highmed.dsf.bpe.service.LogUserTaskResponse">
-      <bpmn:incoming>Flow_00nx7hv</bpmn:incoming>
-      <bpmn:outgoing>Flow_034bfq7</bpmn:outgoing>
-    </bpmn:serviceTask>
   </bpmn:process>
-  <bpmn:message id="Message_1nn2wdw" name="helloWorldMessage" />
+  <bpmn:message id="Message_1nn2wdw" name="helloWorld" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="highmedorg_helloWorld">
-      <bpmndi:BPMNEdge id="Flow_00nx7hv_di" bpmnElement="Flow_00nx7hv">
-        <di:waypoint x="530" y="121" />
-        <di:waypoint x="590" y="121" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_0oyvmcd_di" bpmnElement="SequenceFlow_0oyvmcd">
         <di:waypoint x="365" y="121" />
-        <di:waypoint x="430" y="121" />
+        <di:waypoint x="422" y="121" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_0bbhq2r_di" bpmnElement="SequenceFlow_0bbhq2r">
         <di:waypoint x="215" y="121" />
         <di:waypoint x="265" y="121" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_034bfq7_di" bpmnElement="Flow_034bfq7">
-        <di:waypoint x="690" y="121" />
-        <di:waypoint x="782" y="121" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="ServiceTask_0um3ad2_di" bpmnElement="helloWorldTask">
         <dc:Bounds x="265" y="81" width="100" height="80" />
@@ -50,16 +32,8 @@
       <bpmndi:BPMNShape id="StartEvent_0x5gijn_di" bpmnElement="StartEvent_1">
         <dc:Bounds x="179" y="103" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_06hqzi2_di" bpmnElement="userTask">
-        <dc:Bounds x="430" y="81" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="EndEvent_0xd0x8k_di" bpmnElement="EndEvent_0xd0x8k">
-        <dc:Bounds x="782" y="103" width="36" height="36" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1kldjfh_di" bpmnElement="logUserTaskRespose">
-        <dc:Bounds x="590" y="81" width="100" height="80" />
-        <bpmndi:BPMNLabel />
+        <dc:Bounds x="422" y="103" width="36" height="36" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

@@ -3,6 +3,9 @@ package org.highmed.dsf.fhir.profile;
 import static org.highmed.dsf.bpe.ConstantsBase.CODESYSTEM_HIGHMED_BPMN;
 import static org.highmed.dsf.bpe.ConstantsBase.CODESYSTEM_HIGHMED_BPMN_VALUE_MESSAGE_NAME;
 import static org.highmed.dsf.bpe.ConstantsBase.NAMINGSYSTEM_HIGHMED_ORGANIZATION_IDENTIFIER;
+import static org.highmed.dsf.bpe.ConstantsHelloWorld.PROFILE_HIGHMED_TASK_HELLO_USER;
+import static org.highmed.dsf.bpe.ConstantsHelloWorld.PROFILE_HIGHMED_TASK_HELLO_USER_MESSAGE_NAME;
+import static org.highmed.dsf.bpe.ConstantsHelloWorld.PROFILE_HIGHMED_TASK_HELLO_USER_PROCESS_URI_AND_LATEST_VERSION;
 import static org.highmed.dsf.bpe.ConstantsHelloWorld.PROFILE_HIGHMED_TASK_HELLO_WORLD;
 import static org.highmed.dsf.bpe.ConstantsHelloWorld.PROFILE_HIGHMED_TASK_HELLO_WORLD_MESSAGE_NAME;
 import static org.highmed.dsf.bpe.ConstantsHelloWorld.PROFILE_HIGHMED_TASK_HELLO_WORLD_PROCESS_URI_AND_LATEST_VERSION;
@@ -35,7 +38,7 @@ public class TaskProfileTest
 
 	@ClassRule
 	public static final ValidationSupportRule validationRule = new ValidationSupportRule(VERSION, RELEASE_DATE,
-			Arrays.asList("highmed-task-base-0.5.0.xml", "highmed-task-hello-world.xml"),
+			Arrays.asList("highmed-task-base-0.5.0.xml", "highmed-task-hello-user.xml", "highmed-task-hello-world.xml"),
 			Arrays.asList("highmed-read-access-tag-0.5.0.xml", "highmed-bpmn-message-0.5.0.xml"),
 			Arrays.asList("highmed-read-access-tag-0.5.0.xml", "highmed-bpmn-message-0.5.0.xml"));
 
@@ -52,6 +55,25 @@ public class TaskProfileTest
 
 		assertEquals(0, result.getMessages().stream().filter(m -> ResultSeverityEnum.ERROR.equals(m.getSeverity())
 				|| ResultSeverityEnum.FATAL.equals(m.getSeverity())).count());
+	}
+
+	private Task createValidTaskHelloUser()
+	{
+		Task task = new Task();
+		task.getMeta().addProfile(PROFILE_HIGHMED_TASK_HELLO_USER);
+		task.setInstantiatesUri(PROFILE_HIGHMED_TASK_HELLO_USER_PROCESS_URI_AND_LATEST_VERSION);
+		task.setStatus(TaskStatus.REQUESTED);
+		task.setIntent(TaskIntent.ORDER);
+		task.setAuthoredOn(new Date());
+		task.getRequester().setType(ResourceType.Organization.name()).getIdentifier()
+				.setSystem(NAMINGSYSTEM_HIGHMED_ORGANIZATION_IDENTIFIER).setValue("MeDIC 1");
+		task.getRestriction().addRecipient().setType(ResourceType.Organization.name()).getIdentifier()
+				.setSystem(NAMINGSYSTEM_HIGHMED_ORGANIZATION_IDENTIFIER).setValue("MeDIC 1");
+
+		task.addInput().setValue(new StringType(PROFILE_HIGHMED_TASK_HELLO_USER_MESSAGE_NAME)).getType().addCoding()
+				.setSystem(CODESYSTEM_HIGHMED_BPMN).setCode(CODESYSTEM_HIGHMED_BPMN_VALUE_MESSAGE_NAME);
+
+		return task;
 	}
 
 	private Task createValidTaskHelloWorld()

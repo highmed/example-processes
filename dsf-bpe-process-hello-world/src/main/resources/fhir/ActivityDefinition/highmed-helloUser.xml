@@ -7,10 +7,10 @@
 	</meta>
 	<extension url="http://highmed.org/fhir/StructureDefinition/extension-process-authorization">
 		<extension url="message-name">
-			<valueString value="helloWorld" />
+			<valueString value="helloUser" />
 		</extension>
 		<extension url="task-profile">
-			<valueCanonical value="http://highmed.org/fhir/StructureDefinition/task-hello-world|#{version}" />
+			<valueCanonical value="http://highmed.org/fhir/StructureDefinition/task-hello-user|#{version}" />
 		</extension>
 		<extension url="requester">
 			<valueCoding>
@@ -25,12 +25,12 @@
 			</valueCoding>
 		</extension>
 	</extension>
-	<url value="http://highmed.org/bpe/Process/helloWorld" />
+	<url value="http://highmed.org/bpe/Process/helloUser" />
 	<!-- version managed by bpe -->
 	<version value="#{version}" />
-	<name value="HelloWorld" />
-	<title value="Hello World" />
-	<subtitle value="Example Template Process as template for implementation of novel processes" />
+	<name value="HelloUser" />
+	<title value="Hello User" />
+	<subtitle value="Example Template Process as template for implementation of novel processes with user-tasks" />
 	<!-- status managed by bpe -->
 	<status value="unknown" />
 	<experimental value="false" />
@@ -44,6 +44,6 @@
 			<value value="pmo@highmed.org" />
 		</telecom>
 	</contact>
-	<description value="Example process as template for implementation of novel processes" />
+	<description value="Example process as template for implementation of novel processes with user-tasks" />
 	<kind value="Task" />
 </ActivityDefinition>

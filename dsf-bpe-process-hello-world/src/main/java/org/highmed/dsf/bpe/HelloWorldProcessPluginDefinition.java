@@ -1,5 +1,6 @@
 package org.highmed.dsf.bpe;
 
+import static org.highmed.dsf.bpe.ConstantsHelloWorld.PROCESS_NAME_FULL_HELLO_USER;
 import static org.highmed.dsf.bpe.ConstantsHelloWorld.PROCESS_NAME_FULL_HELLO_WORLD;
 
 import java.time.LocalDate;
@@ -20,13 +21,13 @@ import ca.uhn.fhir.context.FhirContext;
 
 public class HelloWorldProcessPluginDefinition implements ProcessPluginDefinition
 {
-	public static final String VERSION = "0.8.0";
-	public static final LocalDate RELEASE_DATE = LocalDate.of(2022, 8, 1);
+	public static final String VERSION = "0.9.0";
+	public static final LocalDate RELEASE_DATE = LocalDate.of(2022, 10, 24);
 
 	@Override
 	public String getName()
 	{
-		return "dsf-bpe-process-hello-world";
+		return "dsf-bpe-process-hello-world-and-user";
 	}
 
 	@Override
@@ -44,7 +45,7 @@ public class HelloWorldProcessPluginDefinition implements ProcessPluginDefinitio
 	@Override
 	public Stream<String> getBpmnFiles()
 	{
-		return Stream.of("bpe/helloWorld.bpmn");
+		return Stream.of("bpe/helloWorld.bpmn", "bpe/helloUser.bpmn");
 	}
 
 	@Override
@@ -57,12 +58,17 @@ public class HelloWorldProcessPluginDefinition implements ProcessPluginDefinitio
 	public ResourceProvider getResourceProvider(FhirContext fhirContext, ClassLoader classLoader,
 			PropertyResolver resolver)
 	{
+		var aHelloUser = ActivityDefinitionResource.file("fhir/ActivityDefinition/highmed-helloUser.xml");
 		var aHelloWorld = ActivityDefinitionResource.file("fhir/ActivityDefinition/highmed-helloWorld.xml");
-		var qHelloWorld = QuestionnaireResource.file("fhir/Questionnaire/highmed-questionnaire-hello-world.xml");
+
+		var qHelloWorld = QuestionnaireResource.file("fhir/Questionnaire/highmed-questionnaire-hello-user.xml");
+
+		var tHelloUser = StructureDefinitionResource.file("fhir/StructureDefinition/highmed-task-hello-user.xml");
 		var tHelloWorld = StructureDefinitionResource.file("fhir/StructureDefinition/highmed-task-hello-world.xml");
 
 		Map<String, List<AbstractResource>> resourcesByProcessKeyAndVersion = Map.of(
-				PROCESS_NAME_FULL_HELLO_WORLD + "/" + VERSION, Arrays.asList(aHelloWorld, qHelloWorld, tHelloWorld));
+				PROCESS_NAME_FULL_HELLO_USER + "/" + VERSION, Arrays.asList(aHelloUser, qHelloWorld, tHelloUser),
+				PROCESS_NAME_FULL_HELLO_WORLD + "/" + VERSION, Arrays.asList(aHelloWorld, tHelloWorld));
 
 		return ResourceProvider.read(VERSION, RELEASE_DATE,
 				() -> fhirContext.newXmlParser().setStripVersionsFromReferences(false), classLoader, resolver,
