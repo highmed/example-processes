@@ -1,3 +1,13 @@
+## Deprecation Notice
+
+This repository is no longer maintained. Development of the **Hello World** process plugin has been moved to [datasharingframework/dsf-process-hello-world](https://github.com/datasharingframework/dsf-process-hello-world).
+
+Further information on the Data Sharing Framework can be found on the new project website: https://dsf.dev
+
+We would like to thank everyone who has contributed to this repository with code contributions, issues or comments.
+
+---
+
 # HiGHmed DSF Example Processes 
 
 ![Java CI Build with Maven](https://github.com/highmed/example-processes/workflows/Java%20CI%20Build%20with%20Maven/badge.svg)
